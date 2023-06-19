@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './pages/home/home.component';
 
 import { NgxsModule } from '@ngxs/store';
@@ -17,6 +18,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     ReactiveFormsModule,
     RouterModule.forRoot([{ path: '', component: HomeComponent }]),
     MatToolbarModule,
+    MatButtonModule,
     NgxsModule.forRoot([]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
