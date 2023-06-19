@@ -4,18 +4,18 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './product-list/product-list.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([{ path: '', component: ProductListComponent }]),
+    RouterModule.forRoot([{ path: '', component: HomeComponent }]),
     MatToolbarModule,
   ],
-  declarations: [AppComponent, ProductListComponent],
+  declarations: [AppComponent, HomeComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
