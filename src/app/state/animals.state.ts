@@ -1,6 +1,8 @@
 import { Animals } from './animals.actions';
 import {Injectable} from '@angular/core';
 import {State, Action, StateContext} from '@ngxs/store';
+import { AnimalsService } from '../services/animals.service';
+import { tap } from 'rxjs';
 
 
 @State<string[]>({
@@ -9,6 +11,8 @@ import {State, Action, StateContext} from '@ngxs/store';
 })
 @Injectable()
 export class AnimalsState {
+
+  constructor(private animalsService:AnimalsService) {}
 
   @Action(Animals.Add)
   AddAnimal(ctx: StateContext<string[]>, {name}: Animals.Add) {
@@ -19,8 +23,13 @@ export class AnimalsState {
     //   action.name
     // ])
 
-    ctx.setState((state: readonly string[]) => {
-      return [...state, name]
-    })
+    // ctx.setState((state: readonly string[]) => {
+    //   return [...state, name]
+    // })
+
+    return this.animalsService.add(name).pipe(tap((value) => {
+      console.log('VALUE', value)
+      ctx.setState((state: readonly string[]) => [...state, value])
+    }))
   }
 }

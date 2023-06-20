@@ -1,3 +1,10 @@
-<p>home works!</p>
+<p>home works!...</p>
 
 <button mat-raised-button color="primary" (click)="addAnimal('')">Essai</button>
+
+
+<!-- <button mat-raised-button (click)="testo()">test</button> -->
+
+<ul>
+  <li *ngFor="let animal of animals$ | async">{{animal}}</li>
+</ul>
