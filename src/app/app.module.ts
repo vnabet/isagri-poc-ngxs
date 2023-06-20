@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { AnimalsState } from './state/animals.state';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     RouterModule.forRoot([{ path: '', component: HomeComponent }]),
     MatToolbarModule,
     MatButtonModule,
-    NgxsModule.forRoot([]),
+    NgxsModule.forRoot([AnimalsState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
   declarations: [AppComponent, HomeComponent],

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { AddAnimal } from 'src/app/state/animal.actions';
+import { Animals } from 'src/app/state/animals.actions';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ export class HomeComponent {
 
   addAnimal(name: string) {
     this.store
-      .dispatch(new AddAnimal('Chien'))
+      .dispatch(new Animals.Add('Chien'))
       .subscribe(() => console.log('jlkjkljlk'));
   }
 }
