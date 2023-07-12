@@ -11,13 +11,14 @@ import { AnimalsState } from 'src/app/state/animals.state';
 })
 export class HomeComponent {
 
-  @Select(AnimalsState) animals$!: Observable<string[]>
+  // @Select(AnimalsState) animals$!: Observable<string[]>
+  @Select() animals$!: Observable<string[]>
 
   constructor(private store: Store) {}
 
   addAnimal(name: string) {
     this.store
-      .dispatch(new Animals.Add('Chien'))
+      .dispatch(new Animals.Add(name))
       .subscribe(() => console.log('jlkjkljlk'));
   }
 

@@ -12,6 +12,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { AnimalsState } from './state/animals.state';
+import { TestComponent } from './components/test/test.component';
+
 
 @NgModule({
   imports: [
@@ -20,10 +22,15 @@ import { AnimalsState } from './state/animals.state';
     RouterModule.forRoot([{ path: '', component: HomeComponent }]),
     MatToolbarModule,
     MatButtonModule,
-    NgxsModule.forRoot([AnimalsState]),
+    NgxsModule.forRoot([AnimalsState], {
+      selectorOptions: {
+        suppressErrors: false,
+        injectContainerState: false
+      }
+    }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, TestComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

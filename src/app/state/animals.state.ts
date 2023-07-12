@@ -1,6 +1,6 @@
 import { Animals } from './animals.actions';
 import {Injectable} from '@angular/core';
-import {State, Action, StateContext} from '@ngxs/store';
+import {State, Action, StateContext, Selector, createSelector} from '@ngxs/store';
 import { AnimalsService } from '../services/animals.service';
 import { tap } from 'rxjs';
 
@@ -12,7 +12,20 @@ import { tap } from 'rxjs';
 @Injectable()
 export class AnimalsState {
 
+
+  @Selector()
+  static lettreC(state: string[]) {
+    return state.filter((a) => a.indexOf('c') === 0);
+  }
+
+  static lettre(lettre:string) {
+    return createSelector([AnimalsState], (state:string[]) => {
+      return state.filter((a) => a.indexOf(lettre) === 0);
+    })
+  }
+
   constructor(private animalsService:AnimalsService) {}
+
 
   @Action(Animals.Add)
   AddAnimal(ctx: StateContext<string[]>, {name}: Animals.Add) {

@@ -10,6 +10,6 @@ export class AnimalsService {
 
   add(name:string):Observable<string> {
     // return timer(2000).pipe(switchMap(()=> name + ' test'))
-    return of(name + ' test').pipe(delay(2000))
+    return of(name + ' test').pipe(delay(1000))
   }
 }
